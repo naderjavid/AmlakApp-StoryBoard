@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        copyLocalDB()
         return true
     }
 
@@ -79,3 +80,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+let ad = UIApplication.shared.delegate as! AppDelegate
+let context = ad.persistentContainer.viewContext
+
+func copyLocalDB() {
+    let fileManager:FileManager = FileManager.default
+    //let directory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+    let library = fileManager.urls(for: .libraryDirectory, in: .userDomainMask).first!.appendingPathComponent("Application Support")
+    
+    
+    let url = library.appendingPathComponent("AmlakApp.sqlite")
+    print("db path: \(url.path)")
+    if(!fileManager.fileExists(atPath: url.path)){
+        let f1 = Bundle.main.url(forResource: "AmlakApp", withExtension: "sqlite")
+        let f2 = Bundle.main.url(forResource: "AmlakApp", withExtension: "sqlite-shm")
+        let f3 = Bundle.main.url(forResource: "AmlakApp", withExtension: "sqlite-wal")
+        do {
+            var isDir : ObjCBool = false
+            if(!fileManager.fileExists(atPath: library.path, isDirectory: &isDir)){
+                try fileManager.createDirectory(atPath: library.path, withIntermediateDirectories: true, attributes: nil)
+            }
+            try fileManager.copyItem(at: f1!, to: url)
+            try fileManager.copyItem(at: f2!, to: library.appendingPathComponent("AmlakApp.sqlite-shm"))
+            try fileManager.copyItem(at: f3!, to: library.appendingPathComponent("AmlakApp.sqlite-wal"))
+        }
+        catch let error as NSError{
+            print(error)
+        }
+    }
+}

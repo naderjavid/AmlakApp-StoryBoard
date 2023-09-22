@@ -9,23 +9,61 @@
 /* Begin PBXBuildFile section */
 		124591F92AB8D4C300E50CBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124591F82AB8D4C300E50CBA /* AppDelegate.swift */; };
 		124591FB2AB8D4C300E50CBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124591FA2AB8D4C300E50CBA /* SceneDelegate.swift */; };
-		124591FD2AB8D4C300E50CBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124591FC2AB8D4C300E50CBA /* ViewController.swift */; };
 		124592002AB8D4C300E50CBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 124591FE2AB8D4C300E50CBA /* Main.storyboard */; };
 		124592032AB8D4C300E50CBA /* AmlakApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 124592012AB8D4C300E50CBA /* AmlakApp.xcdatamodeld */; };
 		124592052AB8D4C400E50CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 124592042AB8D4C400E50CBA /* Assets.xcassets */; };
 		124592082AB8D4C400E50CBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 124592062AB8D4C400E50CBA /* LaunchScreen.storyboard */; };
+		1273DA232ABD4CF300DF1264 /* AttachmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273DA222ABD4CF300DF1264 /* AttachmentViewController.swift */; };
+		1273DA252ABD553200DF1264 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273DA242ABD553200DF1264 /* Utils.swift */; };
+		1273DA272ABD651F00DF1264 /* FetchMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273DA262ABD651F00DF1264 /* FetchMethods.swift */; };
+		1273DA3F2ABD66BD00DF1264 /* MelkDetailAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273DA3C2ABD66BD00DF1264 /* MelkDetailAttachment.swift */; };
+		1273DA402ABD66BD00DF1264 /* Melk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273DA3D2ABD66BD00DF1264 /* Melk.swift */; };
+		1273DA412ABD66BD00DF1264 /* MelkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273DA3E2ABD66BD00DF1264 /* MelkDetail.swift */; };
+		1273DA432ABD759100DF1264 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273DA422ABD759000DF1264 /* TokenManager.swift */; };
+		1273DA452ABD763100DF1264 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273DA442ABD763100DF1264 /* NetworkManager.swift */; };
+		1273DA472ABD767600DF1264 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273DA462ABD767600DF1264 /* User.swift */; };
+		1273DA492ABDAA6D00DF1264 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273DA482ABDAA6D00DF1264 /* CircularProgressView.swift */; };
+		1273DA4E2ABDEC3B00DF1264 /* AmlakApp.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1273DA4B2ABDEC3B00DF1264 /* AmlakApp.sqlite */; };
+		1273DA4F2ABDEC3B00DF1264 /* AmlakApp.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 1273DA4C2ABDEC3B00DF1264 /* AmlakApp.sqlite-shm */; };
+		1273DA502ABDEC3B00DF1264 /* AmlakApp.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 1273DA4D2ABDEC3B00DF1264 /* AmlakApp.sqlite-wal */; };
+		128DFB9A2ABD47E000658EAE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DFB992ABD47E000658EAE /* LoginViewController.swift */; };
+		128DFB9E2ABD480900658EAE /* MelkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DFB9D2ABD480900658EAE /* MelkDetailViewController.swift */; };
+		128DFBA02ABD481500658EAE /* MelkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DFB9F2ABD481500658EAE /* MelkViewController.swift */; };
+		128DFBA22ABD482E00658EAE /* MelkDetailAttachmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DFBA12ABD482E00658EAE /* MelkDetailAttachmentViewController.swift */; };
+		128DFBA42ABD484600658EAE /* MelkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DFBA32ABD484600658EAE /* MelkTableViewCell.swift */; };
+		128DFBA62ABD485200658EAE /* MelkDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DFBA52ABD485200658EAE /* MelkDetailTableViewCell.swift */; };
+		128DFBA82ABD487100658EAE /* MelkDetailAttachmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DFBA72ABD487100658EAE /* MelkDetailAttachmentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		124591F52AB8D4C300E50CBA /* AmlakApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmlakApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		124591F82AB8D4C300E50CBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		124591FA2AB8D4C300E50CBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		124591FC2AB8D4C300E50CBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		124591FF2AB8D4C300E50CBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		124592022AB8D4C300E50CBA /* AmlakApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AmlakApp.xcdatamodel; sourceTree = "<group>"; };
 		124592042AB8D4C400E50CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		124592072AB8D4C400E50CBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		124592092AB8D4C400E50CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1273DA222ABD4CF300DF1264 /* AttachmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentViewController.swift; sourceTree = "<group>"; };
+		1273DA242ABD553200DF1264 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		1273DA262ABD651F00DF1264 /* FetchMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMethods.swift; sourceTree = "<group>"; };
+		1273DA3C2ABD66BD00DF1264 /* MelkDetailAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MelkDetailAttachment.swift; sourceTree = "<group>"; };
+		1273DA3D2ABD66BD00DF1264 /* Melk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Melk.swift; sourceTree = "<group>"; };
+		1273DA3E2ABD66BD00DF1264 /* MelkDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MelkDetail.swift; sourceTree = "<group>"; };
+		1273DA422ABD759000DF1264 /* TokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		1273DA442ABD763100DF1264 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1273DA462ABD767600DF1264 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1273DA482ABDAA6D00DF1264 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		1273DA4B2ABDEC3B00DF1264 /* AmlakApp.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = AmlakApp.sqlite; sourceTree = "<group>"; };
+		1273DA4C2ABDEC3B00DF1264 /* AmlakApp.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmlakApp.sqlite-shm"; sourceTree = "<group>"; };
+		1273DA4D2ABDEC3B00DF1264 /* AmlakApp.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmlakApp.sqlite-wal"; sourceTree = "<group>"; };
+		128DFB992ABD47E000658EAE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		128DFB9D2ABD480900658EAE /* MelkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelkDetailViewController.swift; sourceTree = "<group>"; };
+		128DFB9F2ABD481500658EAE /* MelkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelkViewController.swift; sourceTree = "<group>"; };
+		128DFBA12ABD482E00658EAE /* MelkDetailAttachmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelkDetailAttachmentViewController.swift; sourceTree = "<group>"; };
+		128DFBA32ABD484600658EAE /* MelkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelkTableViewCell.swift; sourceTree = "<group>"; };
+		128DFBA52ABD485200658EAE /* MelkDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelkDetailTableViewCell.swift; sourceTree = "<group>"; };
+		128DFBA72ABD487100658EAE /* MelkDetailAttachmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelkDetailAttachmentTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +96,83 @@
 		124591F72AB8D4C300E50CBA /* AmlakApp */ = {
 			isa = PBXGroup;
 			children = (
+				1273DA4A2ABDEB8800DF1264 /* Db */,
+				1273DA3A2ABD667B00DF1264 /* Domain */,
+				128DFB942ABD478A00658EAE /* Views */,
 				124591F82AB8D4C300E50CBA /* AppDelegate.swift */,
+				1273DA422ABD759000DF1264 /* TokenManager.swift */,
+				1273DA262ABD651F00DF1264 /* FetchMethods.swift */,
+				1273DA442ABD763100DF1264 /* NetworkManager.swift */,
+				1273DA242ABD553200DF1264 /* Utils.swift */,
 				124591FA2AB8D4C300E50CBA /* SceneDelegate.swift */,
-				124591FC2AB8D4C300E50CBA /* ViewController.swift */,
 				124591FE2AB8D4C300E50CBA /* Main.storyboard */,
 				124592042AB8D4C400E50CBA /* Assets.xcassets */,
 				124592062AB8D4C400E50CBA /* LaunchScreen.storyboard */,
 				124592092AB8D4C400E50CBA /* Info.plist */,
 				124592012AB8D4C300E50CBA /* AmlakApp.xcdatamodeld */,
+				1273DA482ABDAA6D00DF1264 /* CircularProgressView.swift */,
 			);
 			path = AmlakApp;
+			sourceTree = "<group>";
+		};
+		1273DA3A2ABD667B00DF1264 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				1273DA3B2ABD66A600DF1264 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		1273DA3B2ABD66A600DF1264 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				1273DA3D2ABD66BD00DF1264 /* Melk.swift */,
+				1273DA3E2ABD66BD00DF1264 /* MelkDetail.swift */,
+				1273DA3C2ABD66BD00DF1264 /* MelkDetailAttachment.swift */,
+				1273DA462ABD767600DF1264 /* User.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		1273DA4A2ABDEB8800DF1264 /* Db */ = {
+			isa = PBXGroup;
+			children = (
+				1273DA4B2ABDEC3B00DF1264 /* AmlakApp.sqlite */,
+				1273DA4C2ABDEC3B00DF1264 /* AmlakApp.sqlite-shm */,
+				1273DA4D2ABDEC3B00DF1264 /* AmlakApp.sqlite-wal */,
+			);
+			path = Db;
+			sourceTree = "<group>";
+		};
+		128DFB942ABD478A00658EAE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				128DFB992ABD47E000658EAE /* LoginViewController.swift */,
+				128DFB952ABD47A000658EAE /* Tables */,
+				128DFB962ABD47AB00658EAE /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		128DFB952ABD47A000658EAE /* Tables */ = {
+			isa = PBXGroup;
+			children = (
+				128DFB9F2ABD481500658EAE /* MelkViewController.swift */,
+				128DFB9D2ABD480900658EAE /* MelkDetailViewController.swift */,
+				128DFBA12ABD482E00658EAE /* MelkDetailAttachmentViewController.swift */,
+				1273DA222ABD4CF300DF1264 /* AttachmentViewController.swift */,
+			);
+			path = Tables;
+			sourceTree = "<group>";
+		};
+		128DFB962ABD47AB00658EAE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				128DFBA32ABD484600658EAE /* MelkTableViewCell.swift */,
+				128DFBA52ABD485200658EAE /* MelkDetailTableViewCell.swift */,
+				128DFBA72ABD487100658EAE /* MelkDetailAttachmentTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +235,10 @@
 			files = (
 				124592082AB8D4C400E50CBA /* LaunchScreen.storyboard in Resources */,
 				124592052AB8D4C400E50CBA /* Assets.xcassets in Resources */,
+				1273DA4E2ABDEC3B00DF1264 /* AmlakApp.sqlite in Resources */,
 				124592002AB8D4C300E50CBA /* Main.storyboard in Resources */,
+				1273DA4F2ABDEC3B00DF1264 /* AmlakApp.sqlite-shm in Resources */,
+				1273DA502ABDEC3B00DF1264 /* AmlakApp.sqlite-wal in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +249,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1273DA452ABD763100DF1264 /* NetworkManager.swift in Sources */,
+				1273DA432ABD759100DF1264 /* TokenManager.swift in Sources */,
+				128DFBA02ABD481500658EAE /* MelkViewController.swift in Sources */,
 				124592032AB8D4C300E50CBA /* AmlakApp.xcdatamodeld in Sources */,
-				124591FD2AB8D4C300E50CBA /* ViewController.swift in Sources */,
+				128DFB9E2ABD480900658EAE /* MelkDetailViewController.swift in Sources */,
+				128DFBA62ABD485200658EAE /* MelkDetailTableViewCell.swift in Sources */,
+				128DFBA42ABD484600658EAE /* MelkTableViewCell.swift in Sources */,
+				1273DA252ABD553200DF1264 /* Utils.swift in Sources */,
+				128DFBA22ABD482E00658EAE /* MelkDetailAttachmentViewController.swift in Sources */,
+				1273DA412ABD66BD00DF1264 /* MelkDetail.swift in Sources */,
 				124591F92AB8D4C300E50CBA /* AppDelegate.swift in Sources */,
+				128DFBA82ABD487100658EAE /* MelkDetailAttachmentTableViewCell.swift in Sources */,
+				1273DA402ABD66BD00DF1264 /* Melk.swift in Sources */,
+				1273DA232ABD4CF300DF1264 /* AttachmentViewController.swift in Sources */,
+				1273DA3F2ABD66BD00DF1264 /* MelkDetailAttachment.swift in Sources */,
+				128DFB9A2ABD47E000658EAE /* LoginViewController.swift in Sources */,
+				1273DA272ABD651F00DF1264 /* FetchMethods.swift in Sources */,
 				124591FB2AB8D4C300E50CBA /* SceneDelegate.swift in Sources */,
+				1273DA492ABDAA6D00DF1264 /* CircularProgressView.swift in Sources */,
+				1273DA472ABD767600DF1264 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

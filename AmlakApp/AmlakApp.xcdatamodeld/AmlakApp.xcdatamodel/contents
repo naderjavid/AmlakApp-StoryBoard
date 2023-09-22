@@ -1,4 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22G90" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="MelkDetailAttachmentEntity" representedClassName="MelkDetailAttachmentEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="attachId" optional="YES" attributeType="String"/>
+        <attribute name="containerFilePath" optional="YES" attributeType="String"/>
+        <attribute name="creationTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="creatorId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="creatorName" optional="YES" attributeType="String"/>
+        <attribute name="deleterId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="deletionTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="description1" optional="YES" attributeType="String"/>
+        <attribute name="fileExtension" optional="YES" attributeType="String"/>
+        <attribute name="fileName" optional="YES" attributeType="String"/>
+        <attribute name="lastModificationTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lastModifierId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="melkDetailId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="MelkDetailEntity" representedClassName="MelkDetailEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="aslKopy" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="creationTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="creatorId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="creatorName" optional="YES" attributeType="String"/>
+        <attribute name="deletePermission" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="deleterName" optional="YES" attributeType="String"/>
+        <attribute name="deletionTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="germez" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="kamelNages" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="lastModifierName" optional="YES" attributeType="String"/>
+        <attribute name="melkDetailAdminConfirmStatus" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="melkDetailReviewConfirmStatus" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="melkId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="noskheh" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="parvandeh" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="radif" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="radif2" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="readPermission" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="sharh" optional="YES" attributeType="String"/>
+        <attribute name="tarikh" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="tozihat" optional="YES" attributeType="String"/>
+        <attribute name="updatePermission" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="MelkEntity" representedClassName="MelkEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="creatorName" optional="YES" attributeType="String"/>
+        <attribute name="deletePermission" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lastModifierName" optional="YES" attributeType="String"/>
+        <attribute name="mabnayehMalekiyyat" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="melkAdminConfirmStatus" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="melkId" optional="YES" attributeType="String"/>
+        <attribute name="melkReviewConfirmStatus" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="melkVaziat" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="parvandeh" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="readPermission" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="shamarehPelakSabti" optional="YES" attributeType="String"/>
+        <attribute name="shoraka" optional="YES" attributeType="String"/>
+        <attribute name="tozihat" optional="YES" attributeType="String"/>
+        <attribute name="updatePermission" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="vaziateEntegal" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+    </entity>
 </model>

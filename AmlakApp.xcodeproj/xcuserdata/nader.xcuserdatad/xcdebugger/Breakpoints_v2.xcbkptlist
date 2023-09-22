@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "F5F1D1B2-BC93-4222-BC55-0C13434FC8F0"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "884C5090-79E7-42FA-B004-A9BB1569EA14"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AmlakApp/Views/Tables/AttachmentViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "showFile()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5F9EB638-18BC-42D4-9097-D28C975A4FA8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AmlakApp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "copyLocalDB()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "5F9EB638-18BC-42D4-9097-D28C975A4FA8 - cd07a0b3a0a03e1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AmlakApp.copyLocalDB() -&gt; ()"
+                  moduleName = "AmlakApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nader/Desktop/src/AmlakApp/AmlakApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "2000">
+               </Location>
+               <Location
+                  uuid = "5F9EB638-18BC-42D4-9097-D28C975A4FA8 - cd07a0b3a0a03e1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AmlakApp.copyLocalDB() -&gt; ()"
+                  moduleName = "AmlakApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nader/Desktop/src/AmlakApp/AmlakApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "2344">
+               </Location>
+               <Location
+                  uuid = "5F9EB638-18BC-42D4-9097-D28C975A4FA8 - cd07a0b3a0a03e1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AmlakApp.copyLocalDB() -&gt; ()"
+                  moduleName = "AmlakApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nader/Desktop/src/AmlakApp/AmlakApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "1856">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
