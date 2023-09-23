@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -53,7 +53,14 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        userName.delegate = self
+        password.delegate = self
         super.viewDidLoad()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,6 +89,9 @@ class LoginViewController: UIViewController {
                     switch result {
                     case .success(let user):
                         self.isLoggedIn = true
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "goToMelks", sender: self)
+                        }
                         // Token refreshed successfully
                         break // Continue to RealEstateListView
                     case .failure(let error):

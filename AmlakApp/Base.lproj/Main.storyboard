@@ -19,12 +19,12 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="نام کاربری" textAlignment="right" minimumFontSize="20" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="uFW-Zb-xU3">
                                 <rect key="frame" x="49" y="288" width="295" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="کلمه عبور" textAlignment="right" minimumFontSize="20" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="sQv-HE-OS4">
                                 <rect key="frame" x="49" y="368" width="295" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbm-Cy-K7b">
                                 <rect key="frame" x="49" y="448" width="295" height="51"/>
@@ -46,7 +46,7 @@
                             <constraint firstItem="2JK-mH-1wE" firstAttribute="trailing" secondItem="uFW-Zb-xU3" secondAttribute="trailing" constant="49" id="DnZ-o8-fqO"/>
                             <constraint firstItem="sQv-HE-OS4" firstAttribute="leading" secondItem="uFW-Zb-xU3" secondAttribute="leading" id="DzP-BQ-LLx"/>
                             <constraint firstItem="GYI-2Z-RGk" firstAttribute="top" secondItem="Kbm-Cy-K7b" secondAttribute="bottom" constant="17" id="GEj-uU-lZH"/>
-                            <constraint firstItem="uFW-Zb-xU3" firstAttribute="centerY" secondItem="2JK-mH-1wE" secondAttribute="centerY" id="Kzf-ma-q25"/>
+                            <constraint firstItem="uFW-Zb-xU3" firstAttribute="centerY" secondItem="2JK-mH-1wE" secondAttribute="centerY" constant="-125.5" id="Kzf-ma-q25"/>
                             <constraint firstItem="Kbm-Cy-K7b" firstAttribute="trailing" secondItem="sQv-HE-OS4" secondAttribute="trailing" id="PKa-ch-XVB"/>
                             <constraint firstItem="sQv-HE-OS4" firstAttribute="trailing" secondItem="uFW-Zb-xU3" secondAttribute="trailing" id="Pi2-1J-4Tb"/>
                             <constraint firstItem="Kbm-Cy-K7b" firstAttribute="leading" secondItem="GYI-2Z-RGk" secondAttribute="trailing" constant="-168" id="afz-5Z-cfc"/>
@@ -357,7 +357,13 @@
                             <constraint firstItem="wFR-DW-L7T" firstAttribute="top" secondItem="672-Bz-Syg" secondAttribute="top" id="xSM-6w-zGN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9ma-BV-ZrM"/>
+                    <navigationItem key="navigationItem" id="9ma-BV-ZrM">
+                        <barButtonItem key="rightBarButtonItem" image="square.and.arrow.up" catalog="system" id="40l-sM-Xsv">
+                            <connections>
+                                <action selector="shareBtnClicked:" destination="Oq4-97-99y" id="RN0-AT-HUb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="webView" destination="wFR-DW-L7T" id="5wT-6I-bBd"/>
                     </connections>
@@ -368,6 +374,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

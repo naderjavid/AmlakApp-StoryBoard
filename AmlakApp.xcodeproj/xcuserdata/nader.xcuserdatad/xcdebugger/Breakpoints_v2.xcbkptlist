@@ -14,8 +14,8 @@
             filePath = "AmlakApp/Views/Tables/AttachmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "showFile()"
             landmarkType = "9">
          </BreakpointContent>
@@ -81,6 +81,86 @@
                   offsetFromSymbolStart = "1856">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "445A1891-AB7C-45F3-A2AC-AD462402EFB4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AmlakApp/Views/Tables/AttachmentViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "shareBtnClicked(_:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "445A1891-AB7C-45F3-A2AC-AD462402EFB4 - 23eac22abb005f12"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AmlakApp.AttachmentViewController.shareBtnClicked(Any) -&gt; ()"
+                  moduleName = "AmlakApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nader/Desktop/src/AmlakApp/AmlakApp/Views/Tables/AttachmentViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "3856">
+               </Location>
+               <Location
+                  uuid = "445A1891-AB7C-45F3-A2AC-AD462402EFB4 - 23eac22abb005f12"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AmlakApp.AttachmentViewController.shareBtnClicked(Any) -&gt; ()"
+                  moduleName = "AmlakApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nader/Desktop/src/AmlakApp/AmlakApp/Views/Tables/AttachmentViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "4288">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "99D73B5E-69EC-4704-91E2-5B824F6C015A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AmlakApp/Views/LoginViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "01B2315E-34F6-4DDE-B978-C2DA6B539F16"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AmlakApp/FetchMethods.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "updateMelksInCoreData(with:)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

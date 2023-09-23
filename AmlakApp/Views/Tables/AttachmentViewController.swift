@@ -16,6 +16,7 @@ class AttachmentViewController: UIViewController, UIWebViewDelegate, UITextField
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var b_download: UIBarButtonItem!
+    @IBOutlet weak var shareBtn: UIBarButtonItem!
     
     var melkDetailAttachment: MelkDetailAttachmentEntity? = nil
     let barHeight: CGFloat = 50
@@ -86,6 +87,33 @@ class AttachmentViewController: UIViewController, UIWebViewDelegate, UITextField
     
     @IBAction func download(_ sender: Any) {
         resumeDownload()
+    }
+    
+    @IBAction func shareBtnClicked(_ sender: Any){
+        
+            if let attach = melkDetailAttachment {
+                
+                let fileName = "\(attach.attachId!)\(attach.fileExtension!)"
+                
+                let documentsPath = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
+                
+                if let fileUrl = documentsPath.appendingPathComponent(fileName) {
+                    let fileManager = FileManager.default
+                    if fileManager.fileExists(atPath: fileUrl.path){
+                        let fileURL = NSURL(fileURLWithPath: fileUrl.path)
+                        let objectsToShare = [fileURL]
+                        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                        activityVC.setValue("\(attach.fileName!)\(attach.fileExtension!)", forKey: "subject")
+                        self.present(activityVC, animated: true, completion: nil)
+                    }
+                    else
+                    {
+                        let alert = UIAlertController(title: "توجه", message: "این فایل هنوز دانلود نشده است", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "بستن", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            }
     }
     
     func resumeDownload() {

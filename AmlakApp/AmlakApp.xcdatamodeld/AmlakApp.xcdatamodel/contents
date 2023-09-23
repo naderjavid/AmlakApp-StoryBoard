@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22G90" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="MelkDetailAttachmentEntity" representedClassName="MelkDetailAttachmentEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="attachId" optional="YES" attributeType="String"/>
+        <attribute name="attachId" attributeType="String"/>
         <attribute name="containerFilePath" optional="YES" attributeType="String"/>
         <attribute name="creationTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="creatorId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>

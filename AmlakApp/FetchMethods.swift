@@ -76,59 +76,47 @@ func fetchMelksFromAPI(maxResultCount: Int, skipCount: Int, completion: @escapin
     }
 }
 
-func updateMelksInCoreData(with newMelks: [MelkItem]) {
+func updateMelksInCoreData(with newMelkItems: [MelkItem]) {
     context.perform {
-        
-        for newMelk in newMelks {
-            let fetchRequest: NSFetchRequest<MelkEntity> = MelkEntity.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "melkId == %@", newMelk.id)
-            
-            do {
-                let existingMelks = try context.fetch(fetchRequest)
-                if let existingMelk = existingMelks.first {
-                    existingMelk.parvandeh = Int16(newMelk.parvandeh)
-                    existingMelk.name = (newMelk.name ?? "").replacingOccurrences(of: "\n", with: "", options: .caseInsensitive)
-                    existingMelk.shamarehPelakSabti = (newMelk.shamarehPelakSabti ?? "").replacingOccurrences(of: "\n", with: "", options: .caseInsensitive)
-                    existingMelk.melkVaziat = Int16(newMelk.melkVaziat)
-                    existingMelk.mabnayehMalekiyyat = Int16(newMelk.mabnayehMalekiyyat)
-                    existingMelk.vaziateEntegal = Int16(newMelk.vaziateEntegal)
-                    existingMelk.tozihat = newMelk.tozihat
-                    existingMelk.shoraka = newMelk.shoraka ?? ""
-                    existingMelk.readPermission = newMelk.readPermission
-                    existingMelk.updatePermission = newMelk.updatePermission
-                    existingMelk.deletePermission = newMelk.deletePermission
-                    existingMelk.lastModifierName = newMelk.lastModifierName ?? ""
-                    existingMelk.melkAdminConfirmStatus = Int16(newMelk.melkAdminConfirmStatus)
-                    existingMelk.melkReviewConfirmStatus = Int16(newMelk.melkReviewConfirmStatus)
-                } else {
-                    let newMelkEntity = MelkEntity(context: context)
-                    newMelkEntity.melkId = newMelk.id
-                    newMelkEntity.parvandeh = Int16(newMelk.parvandeh)
-                    newMelkEntity.name = (newMelk.name ?? "").replacingOccurrences(of: "\n", with: "", options: .caseInsensitive)
-                    newMelkEntity.shamarehPelakSabti = (newMelk.shamarehPelakSabti ?? "").replacingOccurrences(of: "\n", with: "", options: .caseInsensitive)
-                    newMelkEntity.melkVaziat = Int16(newMelk.melkVaziat)
-                    newMelkEntity.mabnayehMalekiyyat = Int16(newMelk.mabnayehMalekiyyat)
-                    newMelkEntity.vaziateEntegal = Int16(newMelk.vaziateEntegal)
-                    newMelkEntity.tozihat = newMelk.tozihat
-                    newMelkEntity.shoraka = newMelk.shoraka ?? ""
-                    newMelkEntity.readPermission = newMelk.readPermission
-                    newMelkEntity.updatePermission = newMelk.updatePermission
-                    newMelkEntity.deletePermission = newMelk.deletePermission
-                    newMelkEntity.creatorName = newMelk.creatorName ?? ""
-                    newMelkEntity.lastModifierName = newMelk.lastModifierName ?? ""
-                    newMelkEntity.melkAdminConfirmStatus = Int16(newMelk.melkAdminConfirmStatus)
-                    newMelkEntity.melkReviewConfirmStatus = Int16(newMelk.melkReviewConfirmStatus)
-                }
-            } catch {
-                print("Error updating melks in Core Data: \(error)")
-            }
-        }
-        
         do {
+            // Create a dictionary to map existing melk IDs to melk entities
+            var melkIDToMelkEntityMap = [String: MelkEntity]()
+            for existingMelkEntity in try context.fetch(MelkEntity.fetchRequest()) {
+                melkIDToMelkEntityMap[existingMelkEntity.melkId!] = existingMelkEntity
+            }
+            
+            // Iterate over the new melks and update the corresponding existing melks
+            for newMelkItem in newMelkItems {
+                var existingMelkEntity = melkIDToMelkEntityMap[newMelkItem.id]
+                
+                // If the existing melk entity does not exist, create a new one
+                if existingMelkEntity == nil {
+                    existingMelkEntity = MelkEntity(context: context)
+                    existingMelkEntity?.melkId = newMelkItem.id
+                }
+                
+                // Update the existing melk entity with the new data
+                existingMelkEntity?.parvandeh = Int16(newMelkItem.parvandeh)
+                existingMelkEntity?.name = newMelkItem.name
+                existingMelkEntity?.shamarehPelakSabti = newMelkItem.shamarehPelakSabti
+                existingMelkEntity?.melkVaziat = Int16(newMelkItem.melkVaziat)
+                existingMelkEntity?.mabnayehMalekiyyat = Int16(newMelkItem.mabnayehMalekiyyat)
+                existingMelkEntity?.vaziateEntegal = Int16(newMelkItem.vaziateEntegal)
+                existingMelkEntity?.tozihat = newMelkItem.tozihat
+                existingMelkEntity?.shoraka = newMelkItem.shoraka
+                existingMelkEntity?.readPermission = newMelkItem.readPermission
+                existingMelkEntity?.updatePermission = newMelkItem.updatePermission
+                existingMelkEntity?.deletePermission = newMelkItem.deletePermission
+                existingMelkEntity?.creatorName = newMelkItem.creatorName
+                existingMelkEntity?.lastModifierName = newMelkItem.lastModifierName
+                existingMelkEntity?.melkAdminConfirmStatus = Int16(newMelkItem.melkAdminConfirmStatus)
+                existingMelkEntity?.melkReviewConfirmStatus = Int16(newMelkItem.melkReviewConfirmStatus)
+            }
+            
+            // Save the changes to Core Data
             try context.save()
-            print("Melks updated in Core Data")
         } catch {
-            print("Error saving melks data to Core Data: \(error)")
+            print("Error updating melks in Core Data: \(error)")
         }
     }
 }
@@ -200,74 +188,54 @@ func fetchMelkDetailsFromAPI(parvandeh: Int, maxResultCount: Int, skipCount: Int
 
 func updateMelkDetailsInCoreData(with newMelkDetails: [MelkDetailItem]) {
     context.perform {
-        for newMelkDetail in newMelkDetails {
-            let fetchRequest: NSFetchRequest<MelkDetailEntity> = MelkDetailEntity.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "melkId == %ld", newMelkDetail.id)
-            
-            do {
-                let existingMelkDetails = try context.fetch(fetchRequest)
-                if let existingMelkDetail = existingMelkDetails.first {
-                    existingMelkDetail.parvandeh = Int16(newMelkDetail.parvandeh)
-                    existingMelkDetail.radif = Int16(newMelkDetail.radif)
-                    existingMelkDetail.radif2 = Int16(newMelkDetail.radif2 ?? 0)
-                    //existingMelkDetail.tarikh = newMelkDetail.tarikh
-                    existingMelkDetail.sharh = newMelkDetail.sharh
-                    existingMelkDetail.aslKopy = Int16(newMelkDetail.aslKopy)
-                    existingMelkDetail.kamelNages = Int16(newMelkDetail.kamelNages)
-                    existingMelkDetail.tozihat = newMelkDetail.tozihat
-                    existingMelkDetail.readPermission = newMelkDetail.readPermission
-                    existingMelkDetail.updatePermission = newMelkDetail.updatePermission
-                    existingMelkDetail.deletePermission = newMelkDetail.deletePermission
-                    existingMelkDetail.creatorName = newMelkDetail.creatorName
-                    existingMelkDetail.lastModifierName = newMelkDetail.lastModifierName
-                    existingMelkDetail.noskheh = Int16(newMelkDetail.noskheh)
-                    existingMelkDetail.germez = newMelkDetail.germez
-                    existingMelkDetail.deleterName = newMelkDetail.deleterName
-                    //existingMelkDetail.deletionTime = newMelkDetail.deletionTime
-                    existingMelkDetail.melkDetailAdminConfirmStatus = Int16(newMelkDetail.melkDetailAdminConfirmStatus)
-                    existingMelkDetail.melkDetailReviewConfirmStatus = Int16(newMelkDetail.melkDetailReviewConfirmStatus)
-                    //existingMelkDetail.creationTime = newMelkDetail.creationTime
-                    //existingMelkDetail.creatorId = newMelkDetail.creatorId
-                    // Update other properties of MelkDetailEntity here
-                } else {
-                    let newMelkDetailEntity = MelkDetailEntity(context: context)
-                    newMelkDetailEntity.melkId = Int64(newMelkDetail.id)
-                    newMelkDetailEntity.parvandeh = Int16(newMelkDetail.parvandeh)
-                    newMelkDetailEntity.radif = Int16(newMelkDetail.radif)
-                    newMelkDetailEntity.radif2 = Int16(newMelkDetail.radif2 ?? 0)
-                    //newMelkDetailEntity.tarikh = newMelkDetail.tarikh
-                    newMelkDetailEntity.sharh = newMelkDetail.sharh
-                    newMelkDetailEntity.aslKopy = Int16(newMelkDetail.aslKopy)
-                    newMelkDetailEntity.kamelNages = Int16(newMelkDetail.kamelNages)
-                    newMelkDetailEntity.tozihat = newMelkDetail.tozihat
-                    newMelkDetailEntity.readPermission = newMelkDetail.readPermission
-                    newMelkDetailEntity.updatePermission = newMelkDetail.updatePermission
-                    newMelkDetailEntity.deletePermission = newMelkDetail.deletePermission
-                    newMelkDetailEntity.creatorName = newMelkDetail.creatorName
-                    newMelkDetailEntity.lastModifierName = newMelkDetail.lastModifierName
-                    newMelkDetailEntity.noskheh = Int16(newMelkDetail.noskheh)
-                    newMelkDetailEntity.germez = newMelkDetail.germez
-                    newMelkDetailEntity.deleterName = newMelkDetail.deleterName
-                    //newMelkDetailEntity.deletionTime = newMelkDetail.deletionTime
-                    newMelkDetailEntity.melkDetailAdminConfirmStatus = Int16(newMelkDetail.melkDetailAdminConfirmStatus)
-                    newMelkDetailEntity.melkDetailReviewConfirmStatus = Int16(newMelkDetail.melkDetailReviewConfirmStatus)
-                    //newMelkDetailEntity.creationTime = newMelkDetail.creationTime
-                    //newMelkDetailEntity.creatorId = newMelkDetail.creatorId
-                    // Set other properties of MelkDetailEntity here
-                }
-            } catch {
-                print("Error updating MelkDetailEntities in Core Data: \(error)")
-            }
-        }
-        
         do {
+            //Create a dictionary to map existing melkDetail IDs to MelkDetail entities
+            var melkDetailIDToMelkDetailEntityMap = [Int: MelkDetailEntity]()
+            for existingMelkDetailEntity in try context.fetch(MelkDetailEntity.fetchRequest()) {
+                melkDetailIDToMelkDetailEntityMap[Int(existingMelkDetailEntity.melkId)] = existingMelkDetailEntity
+            }
+            //Iterate over the new melkDetails and update the corresponding existing melkDetails
+            for newMelkDetail in newMelkDetails {
+                var existingMelkDetail = melkDetailIDToMelkDetailEntityMap[newMelkDetail.id]
+                
+                //If the existing melkDetail entity does not exist, create a new one
+                if existingMelkDetail == nil {
+                    existingMelkDetail = MelkDetailEntity(context: context)
+                    existingMelkDetail?.melkId = Int64(newMelkDetail.id)
+                }
+                
+                //Update the existing melkDetail entity with the new data
+                existingMelkDetail?.parvandeh = Int16(newMelkDetail.parvandeh)
+                existingMelkDetail?.radif = Int16(newMelkDetail.radif)
+                existingMelkDetail?.radif2 = Int16(newMelkDetail.radif2 ?? 0)
+                //existingMelkDetail?.tarikh = newMelkDetail.tarikh
+                existingMelkDetail?.sharh = newMelkDetail.sharh
+                existingMelkDetail?.aslKopy = Int16(newMelkDetail.aslKopy)
+                existingMelkDetail?.kamelNages = Int16(newMelkDetail.kamelNages)
+                existingMelkDetail?.tozihat = newMelkDetail.tozihat
+                existingMelkDetail?.readPermission = newMelkDetail.readPermission
+                existingMelkDetail?.updatePermission = newMelkDetail.updatePermission
+                existingMelkDetail?.deletePermission = newMelkDetail.deletePermission
+                existingMelkDetail?.creatorName = newMelkDetail.creatorName
+                existingMelkDetail?.lastModifierName = newMelkDetail.lastModifierName
+                existingMelkDetail?.noskheh = Int16(newMelkDetail.noskheh)
+                existingMelkDetail?.germez = newMelkDetail.germez
+                existingMelkDetail?.deleterName = newMelkDetail.deleterName
+                //existingMelkDetail?.deletionTime = newMelkDetail.deletionTime
+                existingMelkDetail?.melkDetailAdminConfirmStatus = Int16(newMelkDetail.melkDetailAdminConfirmStatus)
+                existingMelkDetail?.melkDetailReviewConfirmStatus = Int16(newMelkDetail.melkDetailReviewConfirmStatus)
+                //existingMelkDetail?.creationTime = newMelkDetail.creationTime
+                //existingMelkDetail?.creatorId = newMelkDetail.creatorId
+            }
+            
             try context.save()
-            print("MelkDetailEntities updated in Core Data")
-        } catch {
-            print("Error saving MelkDetailEntities data to Core Data: \(error)")
+        }
+        catch {
+            print("Error updating melkDetails in Core Data: \(error)")
         }
     }
 }
+
 func getMelkDetailAttachmentsData(melkId: Int, completion: @escaping ([MelkDetailAttachmentItem]?, Error?) -> Void) {
     // Fetch data from the API
     fetchMelkDetailAttachmentsFromAPI(melkId: melkId, maxResultCount: 1, skipCount: 0) { melkDetailAttachment, error in
@@ -433,53 +401,47 @@ func fetchMelkDetailAttachmentsFromAPI(maxResultCount: Int, skipCount: Int, comp
 
 func updateMelkDetailAttachmentsInCoreData(with newAttachments: [MelkDetailAttachmentItem]) {
     context.perform {
-        for newAttachment in newAttachments {
-            let fetchRequest: NSFetchRequest<MelkDetailAttachmentEntity> = MelkDetailAttachmentEntity.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "attachId == %@", newAttachment.id)
-            
-            do {
-                let existingAttachments = try context.fetch(fetchRequest)
-                if let existingAttachment = existingAttachments.first {
-                    existingAttachment.melkDetailId = Int16(newAttachment.melkDetailId)
-                    existingAttachment.containerFilePath = newAttachment.containerFilePath
-                    existingAttachment.fileName = newAttachment.fileName
-                    existingAttachment.fileExtension = newAttachment.fileExtension
-                    existingAttachment.description1 = newAttachment.description
-                    existingAttachment.creatorName = newAttachment.creatorName
-                    //existingAttachment.deleterId = newAttachment.deleterId
-                    //existingAttachment.deletionTime = newAttachment.deletionTime
-                    //existingAttachment.lastModificationTime = newAttachment.lastModificationTime
-                    //existingAttachment.lastModifierId = newAttachment.lastModifierId
-                    //existingAttachment.creationTime = newAttachment.creationTime
-                    //existingAttachment.creatorId = newAttachment.creatorId
-                    // Update other properties of MelkDetailAttachmentEntity here
-                } else {
-                    let newAttachmentEntity = MelkDetailAttachmentEntity(context: context)
-                    newAttachmentEntity.attachId = newAttachment.id
-                    newAttachmentEntity.melkDetailId = Int16(newAttachment.melkDetailId)
-                    newAttachmentEntity.containerFilePath = newAttachment.containerFilePath
-                    newAttachmentEntity.fileName = newAttachment.fileName
-                    newAttachmentEntity.fileExtension = newAttachment.fileExtension
-                    newAttachmentEntity.description1 = newAttachment.description
-                    newAttachmentEntity.creatorName = newAttachment.creatorName
-                    //newAttachmentEntity.deleterId = newAttachment.deleterId
-                    //newAttachmentEntity.deletionTime = newAttachment.deletionTime
-                    //newAttachmentEntity.lastModificationTime = newAttachment.lastModificationTime
-                    //newAttachmentEntity.lastModifierId = newAttachment.lastModifierId
-                    //newAttachmentEntity.creationTime = newAttachment.creationTime
-                    //newAttachmentEntity.creatorId = newAttachment.creatorId
-                    // Set other properties of MelkDetailAttachmentEntity here
-                }
-            } catch {
-                print("Error updating MelkDetailAttachmentEntities in Core Data: \(error)")
-            }
-        }
         
         do {
+            
+            //create a dictionary to map existing attachment IDs to attachment entities
+            var melkDetailAttachmentIDToMelkDetailAttachmentEntityMap = [String:MelkDetailAttachmentEntity]()
+            for existingMelkDetailAttachment in try context.fetch(MelkDetailAttachmentEntity.fetchRequest()) {
+                melkDetailAttachmentIDToMelkDetailAttachmentEntityMap[existingMelkDetailAttachment.attachId!] = existingMelkDetailAttachment
+            }
+            
+            //Iterate over the new attachments and update the corresponding existing attachments
+            for newAttachment in newAttachments {
+                var existingAttachment = melkDetailAttachmentIDToMelkDetailAttachmentEntityMap[newAttachment.id]
+                
+                //If the existing attachment does not exist, create the new one
+                if existingAttachment == nil {
+                    existingAttachment = MelkDetailAttachmentEntity(context: context)
+                    existingAttachment?.attachId = newAttachment.id
+                }
+                
+                //updating existing attachment entity with the new data
+                existingAttachment?.melkDetailId = Int16(newAttachment.melkDetailId)
+                existingAttachment?.containerFilePath = newAttachment.containerFilePath
+                existingAttachment?.fileName = newAttachment.fileName
+                existingAttachment?.fileExtension = newAttachment.fileExtension
+                existingAttachment?.description1 = newAttachment.description
+                existingAttachment?.creatorName = newAttachment.creatorName
+                //existingAttachment.deleterId = newAttachment.deleterId
+                //existingAttachment.deletionTime = newAttachment.deletionTime
+                //existingAttachment.lastModificationTime = newAttachment.lastModificationTime
+                //existingAttachment.lastModifierId = newAttachment.lastModifierId
+                //existingAttachment.creationTime = newAttachment.creationTime
+                //existingAttachment.creatorId = newAttachment.creatorId
+                
+            }
+            
+            //Save the changes to Core Data
             try context.save()
-            print("MelkDetailAttachmentEntities updated in Core Data")
-        } catch {
-            print("Error saving MelkDetailAttachmentEntities data to Core Data: \(error)")
+            print("attachments updated in Core Data")
+        }
+        catch {
+            print("Error updating attachments in Core Data: \(error)")
         }
     }
 }
